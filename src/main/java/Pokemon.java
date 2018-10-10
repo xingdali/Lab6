@@ -105,7 +105,9 @@ public class Pokemon {
      * @param attackLvl the attack level to set our Pokemon's attack level to
      */
     public void setAttackLevel(final int attackLvl) {
-        this.attackLevel = attackLvl;
+        if (attackLvl > 0 && attackLvl <= this.hitPoints - 1) {
+            this.attackLevel = attackLvl;
+        }
     }
     /**
      * Get the defense level of the pokemon.
@@ -119,7 +121,9 @@ public class Pokemon {
      * @param defenseLvl the defense level to set our Pokemon's defense level to
      */
     public void setDefenseLevel(final int defenseLvl) {
-        this.defenseLevel = defenseLvl;
+        if (defenseLvl > 0 && defenseLvl <= this.hitPoints - this.attackLevel) {
+            this.defenseLevel = defenseLvl;
+        }
     }
     /**
      * Get the hit points of the pokemon.
@@ -133,7 +137,9 @@ public class Pokemon {
      * @param hp the hit points to set our Pokemon's hit points to
      */
     public void setHitPoints(final int hp) {
-        this.hitPoints = hp;
+        if (hp > 0 && hp <= Colosseum.MAX_HIT_POINTS) {
+            this.hitPoints = hp;
+        }
     }
 
     /**
